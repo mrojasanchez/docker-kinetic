@@ -22,4 +22,11 @@ Or test the Nao in Gazebo (not working 100%):
 
 ## References:
 - https://github.com/nlyubova/tutorials-for-Nao-Pepper-Romeo/blob/master/distr/tuto_kinetic.rst
-- https://github.com/ros-naoqi/nao_virtual/tree/master/nao_gazebo_plugin
+
+## Useful resources:
+
+- https://github.com/vvv-school/vvv17/wiki/School-material 
+- https://github.com/vvv-school/vvv18/wiki/School-material
+
+Specifically, check Day 2: ROS & presentations
+
