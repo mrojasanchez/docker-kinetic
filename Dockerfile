@@ -5,6 +5,7 @@ FROM osrf/ros:kinetic-desktop-full
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+ENV HOME=/home/${USERNAME}
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && apt-get update \
@@ -13,6 +14,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 # Switch from root to user
 USER $USERNAME
+WORKDIR ${HOME}/catkin_ws/src
 
 # Add user to video group to allow access to webcam
 RUN sudo usermod --append --groups video $USERNAME
@@ -21,7 +23,7 @@ RUN sudo usermod --append --groups video $USERNAME
 RUN sudo apt update && sudo apt upgrade -y
 
 # Install Git
-RUN sudo apt install -y git
+RUN sudo apt install -y git nano
 
 # Rosdep update
 RUN rosdep update
